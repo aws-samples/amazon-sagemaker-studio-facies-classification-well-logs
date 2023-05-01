@@ -4,17 +4,24 @@
         "InputDataBucket": {
             "Type": "AWS::S3::Bucket",
             "Properties":{
-            "BucketName": {
-                 "Fn::Join": ["", ["facies-inputdata-", {"Ref": "AWS::AccountId" }  ] ]
-            } }
+                "BucketName": {
+                    "Fn::Join": ["", ["facies-inputdata-", {"Ref": "AWS::AccountId" }  ] ]
+                },
+                "VersioningConfiguration": {
+                    "Status": "Enabled"
+                } 
+            }
         },
 
         "ResultsBucket": {
             "Type": "AWS::S3::Bucket",
             "Properties":{
-            "BucketName": {
-                "Fn::Join": ["", ["facies-results-", { "Ref": "AWS::AccountId" } ] ]
-            }
+                "BucketName": {
+                    "Fn::Join": ["", ["facies-results-", { "Ref": "AWS::AccountId" } ] ]
+                },
+                "VersioningConfiguration": {
+                    "Status": "Enabled"
+                }
             }
         }
     
